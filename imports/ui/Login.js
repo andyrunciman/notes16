@@ -15,7 +15,7 @@ export default class Signup extends React.Component{
     e.preventDefault();
     const email = this.email.value;
     const password = this.password.value;
-    Accounts.createUser({email,password},(err)=>{
+    Accounts.loginWithPassword({email},password,(err)=>{
       if(err){
         this.setState({error:err.reason});
       }else{
@@ -29,7 +29,7 @@ export default class Signup extends React.Component{
         <form onSubmit={this.onSubmit.bind(this)}
               noValidate>
 
-          <h2>Signup</h2>
+          <h2>Login</h2>
 
           {this.state.error?<p>{this.state.error}</p>:undefined}
 
@@ -43,8 +43,8 @@ export default class Signup extends React.Component{
             placeholder="Password"
             ref={(input)=>{this.password = input}}
           />
-          <button>Signup</button>
-          <Link to="/">Already have an account?</Link>
+          <button>Login</button>
+          <Link to="/">Need an account?</Link>
         </form>
       </div>
     );
