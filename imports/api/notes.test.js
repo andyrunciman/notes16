@@ -57,7 +57,7 @@ if(Meteor.isServer){
       const notes = Notes.findOne({_id:note1._id,userId:note1.userId});
       expect(notes.title).toBe("This is an updated title");
       expect(notes.updatedAt).toBeGreaterThan(0);
-      expect(notes).toMatchObject({
+      expect(notes).toMatch({
         title,
         body:note1.body
       });

@@ -1,21 +1,20 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import { Meteor } from 'meteor/meteor'
 import {Accounts} from 'meteor/accounts-base';
-
-export default class Signup extends React.Component{
-
+import {withTracker} from 'meteor/react-meteor-data';
+export class Login extends React.Component{
   constructor(props){
     super(props);
     this.state = {
         error:''
     };
   }
-
   onSubmit(e){
     e.preventDefault();
     const email = this.email.value;
     const password = this.password.value;
-    Accounts.loginWithPassword({email},password,(err)=>{
+    this.props.loginWithPassword({email},password,(err)=>{
       if(err){
         this.setState({error:err.reason});
       }else{
@@ -28,11 +27,8 @@ export default class Signup extends React.Component{
       <div>
         <form onSubmit={this.onSubmit.bind(this)}
               noValidate>
-
           <h2>Login</h2>
-
           {this.state.error?<p>{this.state.error}</p>:undefined}
-
           <input
             type="email"
             placeholder="Email Address"
@@ -50,3 +46,10 @@ export default class Signup extends React.Component{
     );
   };
 };
+
+export default withTracker(()=>{
+  return{
+    loginWithPassword:Meteor.loginWithPassword
+  }
+
+})(Login);
