@@ -12,7 +12,7 @@ export const NoteListHeader = (props) => {
 };
 
 NoteListHeader.propTypes = {
-  meteorCall:PropTypes.object.isRequired
+  meteorCall:PropTypes.func.isRequired
 }
 
 export default withTracker(()=>{
