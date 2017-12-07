@@ -1,4 +1,6 @@
 import React from 'react';
+import {Session} from 'meteor/session';
+
 import {withTracker} from 'meteor/react-meteor-data';
 import {Notes} from '../api/notes';
 import PropTypes from 'prop-types';
@@ -14,11 +16,10 @@ export const NoteList = (props) => {
 
         {props.notes.map((note)=>{
           return(
-            <NoteListItem key={note._id} note={note}/>
+            <NoteListItem key={note._id} note={note} selectedNoteId={props.selectedNoteId} handleSelectedNote={props.handleSelectedNote}/>
           )})
         }
-      NoteList {props.notes.length}
-
+      <p>NoteList {props.notes.length}</p>
     </div>
   );
 };
@@ -26,7 +27,6 @@ export const NoteList = (props) => {
 NoteList.propTypes = {
   notes:PropTypes.array.isRequired
 };
-
 export default withTracker(()=>{
   Meteor.subscribe('notes');
   return{
