@@ -1,12 +1,13 @@
 import React from 'react';
 import PrivateHeader from './PrivateHeader';
 import NoteList from './NoteList';
+import Editor from './Editor';
 
 export default class Dashboard extends React.Component{
 
   constructor(props){
     super(props);
-    this.selectedNoteId = ""; //should this be a state variable?
+    this.selectedNoteId = undefined; //should this be a state variable?
   }
   componentWillMount(){
     //OK to set the state as it doesnt cause a re-render
@@ -32,6 +33,7 @@ export default class Dashboard extends React.Component{
       <div>
         <PrivateHeader title="Notes App"/>
         <NoteList selectedNoteId={this.selectedNoteId} handleSelectedNote={this.handleSelectedNote.bind(this)}/>
+        <Editor selectedNoteId={this.selectedNoteId}/>
       </div>
     )
   }
