@@ -10,9 +10,9 @@ if(Meteor.isClient){
   describe("NoteListHeader",function(){
     it('should call notes-insert when button is clicked',function(){
       const spy = expect.createSpy();
-      const wrapper = shallow(<NoteListHeader meteorCall={spy}/>);
+      const wrapper = shallow(<NoteListHeader call={spy}/>);
       wrapper.find("button").simulate("click");
-      expect(spy).toHaveBeenCalledWith('notes.insert');
+      expect(spy).toHaveBeenCalled();
     })
   });
 }

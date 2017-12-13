@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {withRouter} from 'react-router';
 import {withTracker} from 'meteor/react-meteor-data'
 
-export const NoteListItem = (props) => {
+export default NoteListItem = (props) => {
   //props.history.replace(`/dashboard/${props.note._id}`)
   //trying a callback as there is no need for this to
   //worry about routing...
@@ -22,5 +22,3 @@ export const NoteListItem = (props) => {
 NoteListItem.propTypes = {
   note:PropTypes.object.isRequired
 }
-
-export default withRouter(NoteListItem);

@@ -1,6 +1,7 @@
 import React from 'react';
 import {withTracker} from 'meteor/react-meteor-data';
 import {Notes} from '../api/notes';
+import PropTypes from 'prop-types';
 
 export class Editor extends React.Component{
   constructor(props){
@@ -60,6 +61,11 @@ export class Editor extends React.Component{
       );
     }
   }
+}
+
+Editor.propTypes = {
+  selectedNoteId:PropTypes.string,
+  history:PropTypes.object.isRequired
 }
 
 export default withTracker((props)=>{
