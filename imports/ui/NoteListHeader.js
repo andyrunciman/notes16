@@ -6,18 +6,25 @@ import PropTypes from 'prop-types';
 export const NoteListHeader = (props) => {
   return (
     <div>
-      <button onClick={()=>{props.meteorCall('notes.insert')}}>Add Note</button>
+      <button onClick={()=>{
+        props.call('notes.insert',(err,res) => {
+          if(res){
+            props.history.replace(`/dashboard/${res}`);
+          };
+
+        });
+        }}>Add Note</button>
     </div>
   );
 };
 
 NoteListHeader.propTypes = {
-  meteorCall:PropTypes.func.isRequired
+  call:PropTypes.func.isRequired
 }
 
 export default withTracker(()=>{
   return{
-    meteorCall:Meteor.call
+    call:Meteor.call
   }
 
 })(NoteListHeader);

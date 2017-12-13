@@ -11,12 +11,12 @@ import NoteListEmptyItem from './NoteListEmptyItem';
 export const NoteList = (props) => {
   return(
     <div>
-      <NoteListHeader/>
+      <NoteListHeader history={props.history}/>
         {props.notes.length===0?<NoteListEmptyItem/>:undefined}
 
         {props.notes.map((note)=>{
           return(
-            <NoteListItem key={note._id} note={note} selectedNoteId={props.selectedNoteId} handleSelectedNote={props.handleSelectedNote}/>
+            <NoteListItem key={note._id} note={note} selectedNoteId={props.selectedNoteId} history={props.history}/>
           )})
         }
       <p>NoteList {props.notes.length}</p>
