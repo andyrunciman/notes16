@@ -24,24 +24,38 @@ export class Login extends React.Component{
   }
   render(){
     return(
-      <div>
-        <form onSubmit={this.onSubmit.bind(this)}
-              noValidate>
-          <h2>Login</h2>
-          {this.state.error?<p>{this.state.error}</p>:undefined}
-          <input
-            type="email"
-            placeholder="Email Address"
-            ref={(input)=> {this.email = input}}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            ref={(input)=>{this.password = input}}
-          />
-          <button>Login</button>
-          <Link to="/">Need an account?</Link>
-        </form>
+      <div className='box__wrapper'>
+        <div className='box__component'>
+          <form onSubmit={this.onSubmit.bind(this)}
+                noValidate>
+            <h2 className="box__title">Login</h2>
+            {this.state.error?<p className="box__error">{this.state.error}</p>:undefined}
+            <input
+              type="email"
+              placeholder="Email Address"
+              ref={(input)=> {this.email = input}}
+              className="box__input"
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              ref={(input)=>{this.password = input}}
+              className="box__input"
+            />
+            <div className="u-center-text">
+              <button className="btn">Login</button>
+
+            </div>
+            <div className="u-center-text">
+              <Link className="btn btn--link" to="/signup">Need an account?</Link>
+
+            </div>
+
+
+
+
+          </form>
+        </div>
       </div>
     );
   };

@@ -1,0 +1,28 @@
+.note{
+
+  border-left: 3px solid transparent;
+  padding:0 1rem;
+
+  &:not(:last-child){
+    margin-bottom:1rem;
+  }
+  &__title{
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+  &__date{
+    font-size: 1rem;
+  }
+
+  &__not-found{
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+  &--selected{
+    border-left: 3px solid $color-brand-primary;
+  }
+
+  &--selected &__title{
+    font-weight: 600;
+  }
+}

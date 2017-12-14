@@ -10,7 +10,7 @@ import NoteListEmptyItem from './NoteListEmptyItem';
 
 export const NoteList = (props) => {
   return(
-    <div>
+    <div className="note-list">
       <NoteListHeader history={props.history}/>
         {props.notes.length===0?<NoteListEmptyItem/>:undefined}
 
@@ -19,7 +19,6 @@ export const NoteList = (props) => {
             <NoteListItem key={note._id} note={note} selectedNoteId={props.selectedNoteId} history={props.history}/>
           )})
         }
-      <p>NoteList {props.notes.length}</p>
     </div>
   );
 };
@@ -30,6 +29,6 @@ NoteList.propTypes = {
 export default withTracker(()=>{
   Meteor.subscribe('notes');
   return{
-    notes:Notes.find({}).fetch()
+    notes:Notes.find({},{sort:{updatedAt:-1}}).fetch()
   }
 })(NoteList);

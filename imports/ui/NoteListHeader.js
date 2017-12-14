@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 
 export const NoteListHeader = (props) => {
   return (
-    <div>
-      <button onClick={()=>{
+    <div className="note-header">
+      <button className="btn note-header__btn" onClick={()=>{
         props.call('notes.insert',(err,res) => {
           if(res){
             props.history.replace(`/dashboard/${res}`);

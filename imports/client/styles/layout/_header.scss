@@ -1,0 +1,48 @@
+.header{
+  height:5rem;
+  background-color: $color-brand-primary;
+
+  &__content{
+    max-width: $grid-width;
+    margin: 0 auto;
+    position: relative;
+    height:100%;
+  }
+
+  &__checkbox{
+    display: none;
+  }
+
+  &__checkbox:checked{
+    display: none;
+  }
+
+  &__showmenu{
+    display: none;
+    @media (max-width: 37.5rem){
+      display: inline-block;
+      color:$color-white;
+      font-size: 3rem;
+      position: absolute;
+      top:50%;
+      left:2rem;
+      transform: translate(-50%,-50%);
+    }
+  }
+
+  &__title{
+    color:$color-white;
+    font-size: 3rem;
+    font-weight: 200;
+    padding:1rem 2rem;
+    line-height: 1;
+    position: absolute;
+    top:0;
+    left:0;
+
+    @media (max-width: 37.5rem){
+      left:50%;
+      transform:translateX(-50%);
+    }
+  }
+}

@@ -1,0 +1,49 @@
+.btn{
+
+  border:none;
+  border-radius: 0;
+  text-decoration: none;
+  padding:1rem 4rem;
+  display:inline-block;
+  font-size: $base-font-size;
+  cursor: pointer;
+  font-family: $font-family;
+  background-color: $color-brand-primary;
+  color:$color-white;
+  padding:1rem;
+  //margin:1rem 0;
+  font-weight:200;
+  transition: all .4s;
+
+
+  &:focus{
+    outline:none;
+  }
+
+  &:hover{
+    background-color: $color-brand-secondary;
+  }
+
+  &--link{
+    background-color: transparent;
+    color:$color-brand-primary;
+    font-weight:400;
+  }
+
+  &--link:hover{
+    background-color: transparent;
+    color:$color-brand-secondary;
+  }
+
+  &--header{
+    background-color: transparent;
+    color:white;
+    padding:1.7rem 1rem;
+    margin:0;
+    font-size: $base-font-size;
+    line-height: $base-font-size;
+    float:right;
+  }
+
+
+}

@@ -9,12 +9,12 @@ export default NoteListItem = (props) => {
   //trying a callback as there is no need for this to
   //worry about routing...
   return(
-    <div onClick={()=>{
+    <div className={props.selectedNoteId===props.note._id?'note note--selected':'note'} onClick={()=>{
         props.history.replace(`/dashboard/${props.note._id}`);
       }}>
-      <h5>{props.note.title || "Untitled note"}</h5>
-      {props.selectedNoteId===props.note._id?'selected':undefined}
-      <p className="note-list-item__date">{moment(props.note.updatedAt).format('DD/MM/YY')}</p>
+      <h5 className="note__title">{props.note.title || "Untitled note"}</h5>
+
+      <p className="note__date">{moment(props.note.updatedAt).format('DD/MM/YY')}</p>
     </div>
   )
 };

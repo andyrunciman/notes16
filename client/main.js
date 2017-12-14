@@ -4,6 +4,6 @@ import App from '../imports/ui/App';
 import {Session} from 'meteor/session';
 
 Meteor.startup(()=>{
-  Session.set('selectedNoteId',undefined)
+  Session.set('toggleMenu',false)
   ReactDOM.render(<App/>,document.getElementById("app"));
 });

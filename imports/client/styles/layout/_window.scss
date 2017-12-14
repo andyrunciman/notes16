@@ -1,0 +1,42 @@
+.window{
+  height: calc(100vh - 5rem);
+  //height:100%;
+  max-width: $grid-width;
+  margin:0 auto;
+
+  position: relative;
+
+  &__left{
+    width:20%;
+    float:left;
+    height:100%;
+    overflow: scroll;
+    padding:1rem;
+    transition: all .3s;
+  }
+  &__right{
+    width:80%;
+    height:100%;
+    float:left;
+    padding:1rem;
+  }
+}
+
+@media (max-width:37.5rem){
+  .window__left{
+    width:100%;
+    position:absolute;
+    top:0;
+    left:-600px;
+    background-color: white;
+  }
+
+  .window__left.toggleMenu{
+    left:0;
+  }
+
+  .window__right{
+    width:100%;
+
+  }
+}

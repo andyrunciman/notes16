@@ -2,8 +2,9 @@ import React from 'react';
 import PrivateHeader from './PrivateHeader';
 import NoteList from './NoteList';
 import Editor from './Editor';
+import {withTracker} from 'meteor/react-meteor-data';
 
-export default class Dashboard extends React.Component{
+export class Dashboard extends React.Component{
 
   constructor(props){
     super(props);
@@ -26,9 +27,24 @@ export default class Dashboard extends React.Component{
     return(
       <div>
         <PrivateHeader title="Notes App"/>
-        <NoteList selectedNoteId={this.selectedNoteId} history={this.props.history}/>
-        <Editor selectedNoteId={this.selectedNoteId} history={this.props.history}/>
+        <div className="window">
+          <div className={this.props.toggleMenu?'window__left toggleMenu':'window__left'}>
+            <NoteList selectedNoteId={this.selectedNoteId} history={this.props.history}/>
+          </div>
+          <div className="window__right">
+            <Editor  selectedNoteId={this.selectedNoteId} history={this.props.history}/>
+          </div>
+
+        </div>
+
       </div>
     )
   }
 }
+
+export default withTracker(()=>{
+  const toggleMenu = Session.get('toggleMenu');
+    return{
+      toggleMenu
+    };
+})(Dashboard);
